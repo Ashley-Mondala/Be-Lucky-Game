@@ -7,3 +7,6 @@ class Rank(Enum):
     EPIC = "epic"
     LEGENDARY = "legendary"
     SRANK = "s"
+
+    def __str__(self):
+        return self.value
