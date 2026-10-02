@@ -2,6 +2,7 @@ import random
 from player import Player
 from monster import Monster
 from monster_buff_by_rank import monster_rank_buffs
+from get_monster_to_fight import get_monster
 
 
 def player_turn(user: Player, monster: Monster):
@@ -78,8 +79,9 @@ def monster_turn(monster: Monster, user: Player):
     user.player_turn = True
 
 
-def fight_stage(user: Player, monster: Monster):
+def fight_stage(user: Player):
     copy_user = user
+    monster = get_monster(copy_user)
     if copy_user.get_speed() > monster.get_speed():
         copy_user.player_turn = True
     
