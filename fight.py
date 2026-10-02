@@ -76,3 +76,22 @@ def monster_turn(monster: Monster, user: Player):
             print(f"{monster.name.title()} missed its ultimate!")
     
     user.player_turn = True
+
+
+def fight_stage(user: Player, monster: Monster):
+    copy_user = user
+    if copy_user.get_speed() > monster.get_speed():
+        copy_user.player_turn = True
+    
+    while copy_user.get_health() > 0:
+        if copy_user.player_turn:
+            player_turn(copy_user, monster)
+            if monster.is_dead():
+                print("Yippee you won!")
+                break
+        else:
+            monster_turn(monster, user)
+            if copy_user.is_dead():
+                print("You died!")
+                break
+    
