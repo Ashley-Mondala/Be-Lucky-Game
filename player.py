@@ -7,6 +7,7 @@ class Player():
         self.stats = stats
         self.stage = stage
         self.block = False
+        self.turn = False
     
     def get_stats(self):
         stats = f"Attack Damage: {self.get_attack_damage}\nAccuracy: {self.get_accuracy}\nHP: {self.get_health}\nSpeed: {self.get_speed}\nDefense: {self.get_defense}"
