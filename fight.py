@@ -81,23 +81,23 @@ def monster_turn(monster: Monster, user: Player):
 
 def fight_stage(user: Player):
     copy_user = user
-    monster = get_monster(copy_user)
-    if copy_user.get_speed() > monster.get_speed():
+    monster_fighting = get_monster(copy_user)
+    if copy_user.get_speed() > monster_fighting.get_speed():
         copy_user.player_turn = True
     
     while True:
         if copy_user.player_turn:
             print(copy_user.get_stats())
-            print(monster.get_stats())
-            player_turn(copy_user, monster)
-            if monster.is_dead():
+            print(monster_fighting.get_stats())
+            player_turn(copy_user, monster_fighting)
+            if monster_fighting.is_dead():
                 user.stage += 1
                 print("Yippee you won!")
                 break
         else:
             print(copy_user.get_stats())
-            print(monster.get_stats())
-            monster_turn(monster, copy_user)
+            print(monster_fighting.get_stats())
+            monster_turn(monster_fighting, copy_user)
             if copy_user.is_dead():
                 print("You died!")
                 break
